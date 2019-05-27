@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bxp/bowler/registration_bowler.dart';
 import 'package:flutter_bxp/customPaint/topBg.dart';
+import 'forgotPwe_bowler.dart';
 
 class BowlerLogin extends StatefulWidget {
   @override
@@ -19,6 +21,8 @@ class _BowlerLoginState extends State<BowlerLogin> {
           color: Colors.white
       ),
     );
+
+
     //facebook and google
     final facebook = RaisedButton(
       onPressed: (){},
@@ -81,14 +85,14 @@ class _BowlerLoginState extends State<BowlerLogin> {
 
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body:SingleChildScrollView(
         child: Center(
           child: Container(
-
             color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(36.0),
-              child: Column(
+             child: Padding(
+               padding: const EdgeInsets.only(top:35.0,right: 25.0,left: 25.0),
+               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -173,11 +177,37 @@ class _BowlerLoginState extends State<BowlerLogin> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
 
-                      Text("     New Account",style: TextStyle(color:color),),
+                      new GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context)
+                            => RegistrationBowler()),
+                          );
 
-                      Text("     |",style: TextStyle(color: color),),
+                        },
+                        child: Text("     New Account",
+                          style: TextStyle(color:color,fontSize: 15),),
+                      ),
 
-                      Text("Forgot Password",style: TextStyle(color: color),),
+                      Text("     |",style: TextStyle(color: color,fontSize: 15),),
+
+                      new GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (context)
+                            => ForgotpwdBowler()),);
+                        },
+                        child: Text("Forgot Password",
+                          style: TextStyle(color: color,fontSize: 15),),
+                      ),
+
+
+
+
+
+
+
 
 
                     ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bxp/bowler/forgotPwe_bowler.dart';
+import 'package:flutter_bxp/bowler/registration_bowler.dart';
 import 'package:flutter_bxp/customPaint/topBgg.dart';
 
 class LoginBowlingCenter extends StatefulWidget {
@@ -86,7 +88,7 @@ class _LoginBowlingCenterState extends State<LoginBowlingCenter> {
           child: Container(
             color: Colors.white,
             child: Padding(
-              padding: const EdgeInsets.all(36.0),
+              padding: const EdgeInsets.only(top:35.0,right: 25.0,left: 25.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -172,11 +174,37 @@ class _LoginBowlingCenterState extends State<LoginBowlingCenter> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
 
-                      Text("     New Account",style: TextStyle(color:color),),
+                      new GestureDetector(
+                        onTap: () {
+                           Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context)
+                            => RegistrationBowler()),
+                          );
+
+                        },
+                        child: Text("     New Account",
+                          style: TextStyle(color:color),),
+                      ),
 
                       Text("     |",style: TextStyle(color: color),),
 
-                      Text("Forgot Password",style: TextStyle(color: color),),
+                      new GestureDetector(
+                        onTap: () {
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context)
+                        => ForgotpwdBowler()),);
+                        },
+                        child: Text("Forgot Password",
+                          style: TextStyle(color: color),),
+                      ),
+
+
+
+
+
+
+
 
 
                     ],
