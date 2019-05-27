@@ -1,33 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bxp/customPaint/topBg.dart';
+import 'package:flutter_bxp/bowlingCenter/registrationBowlingCenterTwo.dart';
+import 'package:flutter_bxp/customPaint/topBgg.dart';
 
-import 'login_bowler.dart';
-class RegistrationBowlertwo extends StatefulWidget {
+import 'login_bowling_center.dart';
+class RegistraionBasicDetails extends StatefulWidget {
   @override
-  _RegistrationBowlertwoState createState() => _RegistrationBowlertwoState();
+  _RegistraionBasicDetailsState createState() => _RegistraionBasicDetailsState();
 }
 
-class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
+class _RegistraionBasicDetailsState extends State<RegistraionBasicDetails> {
   @override
   Widget build(BuildContext context) {
-    TextStyle style = TextStyle(fontFamily: 'Open Sans', fontSize: 15.0);
-    final color = const Color(0xff00a650);
 
-    final password = TextField(
+    TextStyle style = TextStyle(fontFamily: 'Open Sans', fontSize: 15.0);
+    final color = const Color(0xffb4002f);
+
+    //bxp
+    final headingNamen = Text(" Bowling Express Pay",
+      textAlign: TextAlign.center,
+      maxLines: 1,
+      style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 25.0,
+          color: Colors.white
+      ),
+    );
+    final firstNameField = TextField(
       obscureText: false,
       style: style,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 10.0),
-        hintText: " Enter Password",prefixIcon: Icon(Icons.lock_outline,color: color,),
+        hintText: " Bowling Center Name",prefixIcon: Icon(Icons.person,color: color,),
         //  border:  OutlineInputBorder(borderRadius: BorderRadius.circular(12.0),),
       ),
     );
-    final conpwd = TextField(
+    final lastNameField = TextField(
       obscureText: false,
       style: style,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 10.0),
-        hintText: " Confirm Password",prefixIcon: Icon(Icons.lock,color: color,),
+        hintText: " Bowling Center Owner/Manager Name",prefixIcon: Icon(Icons.person,color: color,),
+        //  border:  OutlineInputBorder(borderRadius: BorderRadius.circular(12.0),),
+      ),
+    );
+    final emailField = TextField(
+      obscureText: false,
+      style: style,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 10.0),
+        hintText: " Bowling Center Email",prefixIcon: Icon(Icons.email,color: color,),
         //  border:  OutlineInputBorder(borderRadius: BorderRadius.circular(12.0),),
       ),
     );
@@ -40,8 +61,7 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
         //  border:  OutlineInputBorder(borderRadius: BorderRadius.circular(12.0),),
       ),
     );
-
-    final register = ButtonTheme(
+    final next = ButtonTheme(
         minWidth: 200.0,
         height: 50.0,
         child:
@@ -50,10 +70,10 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
           color: color,
           onPressed: () {
 
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> BowlerLogin(),));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> BowlingCenterContactDetails(),));
 
           },elevation: 10.0,
-          child: Text("REGISTER",style: TextStyle(color: Colors.white,fontSize: 20.0),),
+          child: Text("NEXT",style: TextStyle(color: Colors.white,fontSize: 20.0),),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
@@ -61,8 +81,7 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
     );
 
 
-    return Scaffold(
-      backgroundColor: Colors.white,
+    return Scaffold(backgroundColor: Colors.white,
       body:SingleChildScrollView(
         child: Container(
           color: Colors.white,
@@ -78,10 +97,12 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
                     painter: DrawCircle(),
                   ),
                 ),
-                SizedBox(height: 10.0,),
+                headingNamen,
+                //logo
                 SizedBox(
                   child: Image.asset("assets/images/logo.png",height: 100.0,width: 100.0,),
                 ),
+                //login card
                 Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(11.0),
@@ -90,14 +111,14 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(height:10.0),
+                      SizedBox(height:20.0),
+
                       Padding(
                         padding: const EdgeInsets.only(
                             left:10.0,top:5,
                             right: 10.0,bottom: 00
                         ),
-                        child:Icon(Icons.lock_outline,
-                          color: Colors.blueGrey,size: 90.0,),
+                        child:firstNameField,
                       ),
                       SizedBox(height: 10.0,),
                       Padding(
@@ -105,7 +126,7 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
                             left:10.0,top:00,
                             right: 10.0,bottom: 00
                         ),
-                        child:Text("Create Your Password"),
+                        child:lastNameField,
                       ),
                       SizedBox(height: 10.0,),
                       Padding(
@@ -113,7 +134,7 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
                             left:10.0,top:00,
                             right: 10.0,bottom: 00
                         ),
-                        child:password,
+                        child:emailField,
                       ),
                       SizedBox(height: 10.0,),
                       Padding(
@@ -121,28 +142,18 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
                             left:10.0,top:00,
                             right: 10.0,bottom: 00
                         ),
-                        child:conpwd,
+                        child:contactNumber,
                       ),
                       SizedBox(height: 10.0,),
-                      SizedBox(height: 0.0, ),
-
-                      Row(
-                        children: <Widget>[
-                         new Checkbox(value: false, onChanged: addd(),
-                         ),
-                          new Text("I agree terms and conditions",
-                            style: TextStyle(color: Colors.red,
-                                decoration: TextDecoration.underline,fontSize: 15.0),)
-                        ],
-                      )
 
 
 
-                    ],
-                  ),
+                      SizedBox(height: 10.0, ),
+
+                    ],),
                 ),
                 SizedBox(height: 10.0,),
-                register,
+                next,
                 SizedBox(height: 20.0,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -153,7 +164,7 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
                       onTap: (){
                         Navigator.push(context,
                           MaterialPageRoute(builder: (context)
-                          => BowlerLogin()),);
+                          => LoginBowlingCenter()),);
                       },
                       child: Text(" Login",style: TextStyle(color: color,fontSize: 20.0,fontWeight: FontWeight.bold),),
                     )
@@ -165,9 +176,9 @@ class _RegistrationBowlertwoState extends State<RegistrationBowlertwo> {
         ),
       ),
     );
-  }
 
-  addd() {
-    print("clicked");
- }
+
+
+
+  }
 }

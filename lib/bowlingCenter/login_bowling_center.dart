@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bxp/bowler/forgotPwe_bowler.dart';
 import 'package:flutter_bxp/bowler/registration_bowler.dart';
+import 'package:flutter_bxp/bowlingCenter/registration_bowlingCenterOne.dart';
 import 'package:flutter_bxp/customPaint/topBgg.dart';
+
+import 'forgotpwd_bowlingCenter.dart';
 
 class LoginBowlingCenter extends StatefulWidget {
   @override
@@ -83,6 +86,7 @@ class _LoginBowlingCenterState extends State<LoginBowlingCenter> {
 
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body:SingleChildScrollView(
         child: Center(
           child: Container(
@@ -179,7 +183,7 @@ class _LoginBowlingCenterState extends State<LoginBowlingCenter> {
                            Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context)
-                            => RegistrationBowler()),
+                            => RegistraionBasicDetails()),
                           );
 
                         },
@@ -193,7 +197,7 @@ class _LoginBowlingCenterState extends State<LoginBowlingCenter> {
                         onTap: () {
                         Navigator.push(context,
                           MaterialPageRoute(builder: (context)
-                        => ForgotpwdBowler()),);
+                        => ForgotPwd_bowlingCenter()),);
                         },
                         child: Text("Forgot Password",
                           style: TextStyle(color: color),),
