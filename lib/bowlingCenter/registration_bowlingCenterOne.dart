@@ -97,6 +97,7 @@ class _RegistraionBasicDetailsState extends State<RegistraionBasicDetails> {
                     painter: DrawCircle(),
                   ),
                 ),
+
                 headingNamen,
                 //logo
                 SizedBox(
